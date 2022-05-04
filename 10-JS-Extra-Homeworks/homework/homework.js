@@ -41,6 +41,17 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var may="";
+  var min="";
+  for (var i=0; i<s.length; i++){
+    if (s.charAt(i)===s.charAt(i).toUpperCase()) {
+      may=may + s.charAt(i);
+      } 
+    else {
+      min=min + s.charAt(i);
+      }
+  }
+  return may + min; 
 }
 
 
@@ -50,6 +61,11 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  var espejo = '';
+   for(var i = str.length -1; i >= 0; i--) {
+     espejo += str[i];
+   };
+  return espejo.split(' ').reverse().join(' ');
 } 
 
 
@@ -58,6 +74,12 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  if (numero.toString()===numero.toString().split("").reverse().join("")){
+    return "Es capicua";
+  }
+  else {
+    return "No es capicua";
+  }
 }
 
 
@@ -65,13 +87,15 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  return cadena.replace(/a/g,"").replace(/b/g,"").replace(/c/g,"");
 }
-
 
 function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  var matriz=arr.sort((a,b)=> a.length-b.length);
+  return matriz;
 }
 
 
@@ -81,6 +105,13 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+  var resul=[];
+  arreglo1.forEach(arr1 => {
+    arreglo2.forEach(arr2 => {
+      if (arr1===arr2) {resul.push(arr1)}
+      });
+    });
+    return resul;
 }
 
 
